@@ -8,9 +8,6 @@ with for loops and conditional statements to display 9 students on the pages and
 for the buttons to be functional
 */
 
-}
-
-});
 
 
 /*
