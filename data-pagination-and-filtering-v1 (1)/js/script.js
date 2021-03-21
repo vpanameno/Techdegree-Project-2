@@ -7,16 +7,6 @@ dynamic and user-friendly. I selected, created and manipulated elements along
 with for loops and conditional statements to display 9 students on the pages and
 for the buttons to be functional
 */
-//Create a search bar
-const header = document.querySelector('.header');
-
-searchButtonHTML = `<label for="search" class="student-search">
-  <span>${'Search by name'} </span>
-  <input id="search" placeholder="Search by name...">
-  <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
-</label`;
-  header.insertAdjacentHTML ('beforeend', searchButtonHTML);
-
 
 /*
 This function will create and insert/append the elements needed to display a "page" of nine students
