@@ -8,6 +8,8 @@ with for loops and conditional statements to display 9 students on the pages and
 for the buttons to be functional
 */
 
+
+
 /*
 This function will create and insert/append the elements needed to display a "page" of nine students
 */
@@ -58,8 +60,8 @@ function addPagination (list) {
           if (event.target.tagName === 'BUTTON'); {
           const prevButton = document.querySelector('.active');
           prevButton.className = ''; //remove active class to only select one button
-          const clickedButton = event.target;
-          clickedButton.className = 'active'; //re-assign active class
+          const clickedButton = event.target; //reference to the trigger
+          clickedButton.className = 'active'; //re-assign active class to a single button at any given time
 
           page = clickedButton.textContent //Set the button being clicked on to the page number
           showPage(list, page);
