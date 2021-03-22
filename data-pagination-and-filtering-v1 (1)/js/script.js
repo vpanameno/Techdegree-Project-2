@@ -41,12 +41,12 @@ function showPage (list, pageNumber) {
 This function will create and insert/append the elements needed for the pagination buttons
 */
 function addPagination (list) {
-  let numOfButtons = Math.ceil(list.length / 9 ); //Displays nine students per page per button
+  let numOfButtons = Math.ceil(list.length / 9); //Displays nine students per page per button
   const linkList = document.querySelector('.link-list');
 
   linkList.innerHTML = '';
 
-  for (let i = 1; i < numOfButtons; i+=1) { //loop will iterate over number of buttons
+  for (let i = 1; i <= numOfButtons; i+=1) { //loop will iterate over number of buttons
     buttonNum =
     `<li>
     <button type = 'button' >${i}</button
@@ -69,6 +69,7 @@ function addPagination (list) {
 }
 });
 }
+
 
 // Call function
 
