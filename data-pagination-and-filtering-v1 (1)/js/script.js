@@ -20,7 +20,7 @@ function showPage (list, pageNumber) {
     studentList.innerHTML = '';
     for (let i = 0; i < list.length; i += 1) { //loop will iterate over array and objects containing student info
       if (i >= startIndex && i < endIndex) {
-        studentItem = `<li class="student-item cf">
+        let studentItem = `<li class="student-item cf">
           <div class="student-details">
           <img class="avatar" src="${list[i].picture.medium}" alt="Profile Picture">
           <h3>${list[i].name.first}
@@ -47,28 +47,31 @@ function addPagination (list) {
   linkList.innerHTML = '';
 
   for (let i = 1; i <= numOfButtons; i+=1) { //loop will iterate over number of buttons
-    buttonNum =
+    let buttonNum =
     `<li>
-    <button type = 'button' >${i}</button
+    <button type ="button" >${i}</button
     </li>`
     linkList.insertAdjacentHTML('beforeend', buttonNum);
 }
     const firstButton = document.querySelector('button');
-    firstButton.className = 'active';
+    firstButton.className = 'active'
 
-    linkList.addEventListener("click", (event) => { //eventListener will fire when the active button is clicked
-          if (event.target.tagName === 'BUTTON'); {
-          const prevButton = document.querySelector('.active');
-          prevButton.className = ''; //remove active class to only select one button
-          const clickedButton = event.target; //reference to the trigger
-          clickedButton.className = 'active'; //re-assign active class to a single button at any given time
+    linkList.addEventListener('click', (event) => {
+          if (event.target.tagName === 'BUTTON') {
+            prevButton = document.querySelector('.active');
+            prevButton.className = '';
+            event.target.className = 'active';
 
-          page = clickedButton.textContent //Set the button being clicked on to the page number
+
+
+          page = event.target.textContent //Set the button being clicked on to the page number
           showPage(list, page);
 
 }
 });
 }
+
+
 
 
 // Call function
