@@ -54,23 +54,59 @@ function addPagination (list) {
     linkList.insertAdjacentHTML('beforeend', buttonNum);
 }
     const firstButton = document.querySelector('button');
-    firstButton.className = 'active'
+    firstButton.className = 'active';
 
     linkList.addEventListener('click', (event) => {
           if (event.target.tagName === 'BUTTON') {
             prevButton = document.querySelector('.active');
             prevButton.className = '';
-            event.target.className = 'active';
+            let clickedTarget = event.target
+            clickedTarget.className = 'active';
 
 
 
-          page = event.target.textContent //Set the button being clicked on to the page number
+          page = clickedTarget.textContent //Set the button being clicked on to the page number
           showPage(list, page);
 
 }
 });
 }
+//Create a search bar
+const header = document.querySelector('.header'); //select elements you will use
+let searchButtonHTML = `<label for="search" class="student-search">
+  <span>${'Search by name'} </span>
+  <input id="search" placeholder="Search by name...">
+  <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+</label`;
+header.insertAdjacentHTML ('beforeend', searchButtonHTML);
 
+//make search bar functional
+
+const searchInput = document.querySelector('#search'); //selecting the input element
+const submitButton = document.querySelector('button');
+let matches = []; //creating a list to store matches
+
+function filterNames(list) {
+
+  let matches = []; //creating a list to store matches
+
+
+  for (let i = 0; i < list.length; i +=1) { //looping over length of list
+  studentName =`${list[i].name.first.toLowerCase()} ${list[i].name.last.toLowerCase()}`;
+
+    if (searchInput.value =! 0 && searchInput.value.includes(studentName)) {
+        matches.push(list[i]);
+}
+}
+showPage(matches, 1);
+addPagination(matches);
+}
+
+submitButton.addEventListener('click', (e) => {
+              e.preventDefault();
+              filterNames(data);
+
+    });
 
 
 
